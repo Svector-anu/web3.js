@@ -52,6 +52,21 @@ yarn add web3-core
 | test:integration | Uses `jest` to run tests under `/test/integration` |
 | test:unit        | Uses `jest` to run tests under `/test/unit`        |
 
+## Beginner Example: Fetch Ether Balance
+
+```javascript
+const Web3 = require('web3');
+const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID');
+
+async function getBalance(account) {
+    const balance = await web3.eth.getBalance(account);
+    console.log('Balance in Ether:', web3.utils.fromWei(balance, 'ether'));
+}
+
+getBalance('0xYourEthereumAddress');
+
+
+
 [docs]: https://docs.web3js.org/
 [repo]: https://github.com/web3/web3.js/tree/4.x/packages/web3-core
 [npm-image]: https://img.shields.io/github/package-json/v/web3/web3.js/4.x?filename=packages%2Fweb3-core%2Fpackage.json
